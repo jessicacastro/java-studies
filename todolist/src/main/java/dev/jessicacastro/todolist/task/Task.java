@@ -40,4 +40,16 @@ public class Task {
 
   @CreationTimestamp
   private LocalDateTime createdAt;
+
+  public void setTitle(String title) throws Exception {
+    if (title == null || title.isEmpty()) {
+      throw new Exception("Title is required");
+    }
+
+    if (title.length() > 50) {
+      throw new Exception("Title must have a maximum of 50 characters");
+    }
+
+    this.title = title;
+  }
 }
